@@ -23,12 +23,27 @@ class _$MovieSerializer implements StructuredSerializer<Movie> {
     if (value != null) {
       result
         ..add('id')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     value = object.title;
     if (value != null) {
       result
         ..add('title')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.img;
+    if (value != null) {
+      result
+        ..add('img')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.thumb;
+    if (value != null) {
+      result
+        ..add('thumb')
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
@@ -76,10 +91,18 @@ class _$MovieSerializer implements StructuredSerializer<Movie> {
       switch (key) {
         case 'id':
           result.id = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'title':
           result.title = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'img':
+          result.img = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'thumb':
+          result.thumb = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
         case 'description':
@@ -107,9 +130,13 @@ class _$MovieSerializer implements StructuredSerializer<Movie> {
 
 class _$Movie extends Movie {
   @override
-  final int? id;
+  final String? id;
   @override
   final String? title;
+  @override
+  final String? img;
+  @override
+  final String? thumb;
   @override
   final String? description;
   @override
@@ -125,6 +152,8 @@ class _$Movie extends Movie {
   _$Movie._(
       {this.id,
       this.title,
+      this.img,
+      this.thumb,
       this.description,
       this.is_disabled,
       this.running_time,
@@ -144,6 +173,8 @@ class _$Movie extends Movie {
     return other is Movie &&
         id == other.id &&
         title == other.title &&
+        img == other.img &&
+        thumb == other.thumb &&
         description == other.description &&
         is_disabled == other.is_disabled &&
         running_time == other.running_time &&
@@ -155,7 +186,11 @@ class _$Movie extends Movie {
     return $jf($jc(
         $jc(
             $jc(
-                $jc($jc($jc(0, id.hashCode), title.hashCode),
+                $jc(
+                    $jc(
+                        $jc($jc($jc(0, id.hashCode), title.hashCode),
+                            img.hashCode),
+                        thumb.hashCode),
                     description.hashCode),
                 is_disabled.hashCode),
             running_time.hashCode),
@@ -167,6 +202,8 @@ class _$Movie extends Movie {
     return (newBuiltValueToStringHelper(r'Movie')
           ..add('id', id)
           ..add('title', title)
+          ..add('img', img)
+          ..add('thumb', thumb)
           ..add('description', description)
           ..add('is_disabled', is_disabled)
           ..add('running_time', running_time)
@@ -178,13 +215,21 @@ class _$Movie extends Movie {
 class MovieBuilder implements Builder<Movie, MovieBuilder> {
   _$Movie? _$v;
 
-  int? _id;
-  int? get id => _$this._id;
-  set id(int? id) => _$this._id = id;
+  String? _id;
+  String? get id => _$this._id;
+  set id(String? id) => _$this._id = id;
 
   String? _title;
   String? get title => _$this._title;
   set title(String? title) => _$this._title = title;
+
+  String? _img;
+  String? get img => _$this._img;
+  set img(String? img) => _$this._img = img;
+
+  String? _thumb;
+  String? get thumb => _$this._thumb;
+  set thumb(String? thumb) => _$this._thumb = thumb;
 
   String? _description;
   String? get description => _$this._description;
@@ -211,6 +256,8 @@ class MovieBuilder implements Builder<Movie, MovieBuilder> {
     if ($v != null) {
       _id = $v.id;
       _title = $v.title;
+      _img = $v.img;
+      _thumb = $v.thumb;
       _description = $v.description;
       _is_disabled = $v.is_disabled;
       _running_time = $v.running_time?.toBuilder();
@@ -241,6 +288,8 @@ class MovieBuilder implements Builder<Movie, MovieBuilder> {
           new _$Movie._(
               id: id,
               title: title,
+              img: img,
+              thumb: thumb,
               description: description,
               is_disabled: is_disabled,
               running_time: _running_time?.build(),

@@ -25,7 +25,7 @@ class PostsRemoteDataSourceImpl implements PostsRemoteDataSource {
   @override
   Future<List<Post>> fetchPostsList([Map<String, dynamic>? parameters]) async {
     List<dynamic> jsonData =
-        await httpService!.getHttp(ApiRoutes.posts, parameters);
+        await httpService!.getHttp(ApiRoutes.movies, parameters);
 
     var items =
         jsonData.map<Post>((vendorMap) => Post.fromMap(vendorMap)).toList();

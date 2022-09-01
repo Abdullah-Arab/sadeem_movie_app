@@ -11,7 +11,9 @@ import 'package:movieapp/core/services/navigation/navigation_service_impl.dart';
 import 'package:movieapp/core/utils/file_helper.dart';
 import 'package:get_it/get_it.dart';
 
+import 'core/data_sources/movies/movies_remote_data_source.dart';
 import 'core/data_sources/posts/post_remote_data_source.dart';
+import 'core/repositories/movies_repository/movies_repository.dart';
 import 'core/repositories/posts_repository/posts_repository.dart';
 
 GetIt locator = GetIt.instance;
@@ -40,7 +42,13 @@ Future<void> setupLocator() async {
     () => PostsRemoteDataSourceImpl(),
   );
 
+  locator.registerLazySingleton<MoviesRemoteDataSource>(
+    () => MoviesRemoteDataSourceImpl(),
+  );
+
   locator.registerLazySingleton<PostsRepository>(() => PostsRepositoryImpl());
+
+  locator.registerLazySingleton<MoviesRepository>(() => MoviesRepositoryImpl());
 
   await _setupSharedPreferences();
 

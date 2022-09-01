@@ -15,11 +15,16 @@ part 'movie.g.dart';
 ///
 
 abstract class Movie implements Built<Movie, MovieBuilder> {
-  int? get id;
+
+  String? get id; // uuid
 
   String? get title;
 
+  String? get img;
+  String? get thumb;
+
   String? get description;
+
   bool? get is_disabled;
 
   RunningTime? get running_time;

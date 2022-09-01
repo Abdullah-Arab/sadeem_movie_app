@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:movieapp/ui/shared/ui_helper.dart';
 import 'package:stacked/stacked.dart';
@@ -56,7 +58,7 @@ class _MovieViewState extends State<MovieView>
               appBar: MyAppBar(),
               body: LoadingCircularProgressIndicator())
           : Scaffold(
-              appBar: MyAppBar(),
+              appBar: MyAppBar("title"),
               body: model.isBusy
                   ? LoadingCircularProgressIndicator()
                   : Padding(
@@ -68,11 +70,11 @@ class _MovieViewState extends State<MovieView>
                               elevation: 2,
                               margin: EdgeInsets.all(8),
                               child: Container(
-                                height: MediaQuery.of(context).size.height / 7,
+                                height: MediaQuery.of(context).size.height / 5,
                                 child: Row(
                                   children: [
                                     Expanded(
-                                      flex: 1,
+                                      flex: 3,
                                       child: Container(
                                         //color: Colors.r,
                                         child: Image.network(
@@ -82,7 +84,7 @@ class _MovieViewState extends State<MovieView>
                                       ),
                                     ),
                                     Expanded(
-                                        flex: 3,
+                                        flex: 4,
                                         child: Padding(
                                           padding: const EdgeInsets.only(
                                               left: 25, right: 25),
@@ -93,17 +95,17 @@ class _MovieViewState extends State<MovieView>
                                                 mainAxisAlignment:
                                                     MainAxisAlignment.start,
                                                 children: [
-                                                  Text(
-                                                    'The Godfather',
-                                                    maxLines: 1,
-                                                    overflow:
-                                                        TextOverflow.ellipsis,
-                                                    style: TextStyle(
-                                                        fontWeight:
-                                                            FontWeight.bold),
+                                                  Expanded(
+                                                    child: Text(
+                                                      'The Godfather',
+                                                      maxLines: 1,
+                                                      overflow:
+                                                          TextOverflow.ellipsis,
+                                                      style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.bold),
+                                                    ),
                                                   ),
-                                                  UIHelper
-                                                      .horizontalSpaceSmall(),
                                                   Text('(2022)'),
                                                 ],
                                               ),
@@ -127,7 +129,7 @@ class _MovieViewState extends State<MovieView>
                                                   Expanded(
                                                       child: Text(
                                                     'The aging patriarch of an organized crime dynasty in postwar New York City transfers control of his clandestine empire to his reluctant youngest son.',
-                                                    maxLines: 3,
+                                                    maxLines: 5,
                                                     overflow:
                                                         TextOverflow.ellipsis,
                                                     style: TextStyle(),
@@ -139,6 +141,149 @@ class _MovieViewState extends State<MovieView>
                                         ))
                                   ],
                                 ),
+                              ),
+                            ),
+
+                            Container(
+                              height: 160,
+                              child: ListView(
+                                scrollDirection: Axis.horizontal,
+                                children: Iterable<int>.generate(20)
+                                    .map((e) => InkWell(
+                                  onTap: () async {
+
+
+
+                                  },
+                                  child: Card(
+                                    elevation: 2,
+                                    margin: EdgeInsets.all(8),
+                                    child: Container(
+                                      width: 110,
+                                      child: Column(
+                                        children: [
+                                          Expanded(
+                                            flex: 7,
+                                            child: Container(
+                                              //color: Colors.r,
+                                              child: Image.network(
+                                                'https://picsum.photos/250?image='+'${Random().nextInt(50)}',
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                          ),
+                                          Expanded(
+                                              flex: 3,
+                                              child: Padding(
+                                                padding: const EdgeInsets.only(
+                                                    left: 8, right: 8),
+                                                child: Column(
+                                                  children: [
+                                                    UIHelper.verticalSpaceSmall(),
+                                                    Row(
+                                                      mainAxisAlignment:
+                                                      MainAxisAlignment.start,
+                                                      children: [
+                                                        Expanded(
+                                                          child: Text(
+                                                            'The Godfather',
+                                                            maxLines: 1,
+                                                            overflow: TextOverflow
+                                                                .ellipsis,
+                                                            style: TextStyle(
+                                                              fontSize: 12,
+                                                                fontWeight:
+                                                                FontWeight
+                                                                    .bold),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    Row(
+                                                      mainAxisAlignment:
+                                                      MainAxisAlignment.start,
+                                                      children: [
+                                                        Text(
+                                                          'Thriler',
+                                                          style: TextStyle(),
+                                                        ),
+                                                        UIHelper
+                                                            .horizontalSpaceSmall(),
+                                                      ],
+                                                    ),
+                                                    UIHelper.horizontalSpaceLarge(),
+                                                  
+                                                  ],
+                                                ),
+                                              ))
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                )) // TODO move this section to staeLess widgets
+                                    .toList(),
+                              ),
+                            ),
+                            Container(
+                              height: 350,
+                              child: ListView(
+                                children: Iterable<int>.generate(5)
+                                    .map((e) => InkWell(
+                                  onTap: () async {
+
+
+                                  },
+                                  child: Card(
+                                    elevation: 2,
+                                    margin: EdgeInsets.all(8),
+                                    child: Container(
+                                      height:
+                                      MediaQuery.of(context).size.height / 10,
+                                      child: Row(
+                                        children: [
+                                          Expanded(
+                                            flex: 1,
+                                            child: Container(
+                                              //color: Colors.r,
+                                              child: Image.network(
+                                                'https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png',
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                          ),
+                                          Expanded(
+                                              flex: 3,
+                                              child: Padding(
+                                                padding: const EdgeInsets.only(
+                                                    left: 25, right: 25),
+                                                child: Column(
+                                                  mainAxisAlignment: MainAxisAlignment.center,
+                                                  children: [
+                                                    Row(
+                                                      mainAxisAlignment:
+                                                      MainAxisAlignment.start,
+                                                      children: [
+                                                        Text(
+                                                          'The Godfather',
+                                                          maxLines: 1,
+                                                          overflow: TextOverflow
+                                                              .ellipsis,
+                                                          style: TextStyle(
+                                                              fontWeight:
+                                                              FontWeight
+                                                                  .bold),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ],
+                                                ),
+                                              ))
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                )) // TODO move this section to staeLess widgets
+                                    .toList(),
                               ),
                             )
                           ],
