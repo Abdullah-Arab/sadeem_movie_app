@@ -51,7 +51,7 @@ class _ActorViewState extends State<ActorView>
     return ViewModelBuilder<ActorViewModel>.reactive(
       viewModelBuilder: () => ActorViewModel(),
       onModelReady: (model) async {
-        //await model.init(context, widget.actor!);
+        // await model.init(context, widget.actor!);
       },
       builder: (context, model, child) => model.isBusy
           ? Scaffold(

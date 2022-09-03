@@ -4,6 +4,9 @@ import 'package:movieapp/ui/widgets/stateless/movie_tile/movie_tile_view_model.d
 import 'package:stacked/stacked.dart';
 
 import '../../../../core/models/movie/movie.dart';
+import '../../../../core/services/navigation/navigation_service.dart';
+import '../../../../locator.dart';
+import '../../../router.gr.dart';
 import '../../../shared/ui_helper.dart';
 
 /// A list tile for an article.
@@ -20,7 +23,8 @@ class MovieTile extends StatelessWidget {
       onModelReady: (model) => model.init(movie),
       builder: (context, model, child) => InkWell(
         onTap: () async {
-          model.moveToMovieViewRoute(context);
+          await locator<NavigationService>()
+              .pushNamed(MovieViewRoute(movie: movie), context);
         },
         child: Card(
           elevation: 2,

@@ -13,6 +13,7 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i10;
 import 'package:flutter/material.dart' as _i11;
+import 'package:movieapp/core/models/movie/movie.dart';
 
 import '../core/models/post/post.dart' as _i12;
 import 'views/actor_view/actor_view.dart' as _i7;
@@ -144,7 +145,8 @@ class ActorsListViewRoute extends _i10.PageRouteInfo<void> {
 /// generated route for
 /// [_i6.MovieView]
 class MovieViewRoute extends _i10.PageRouteInfo<void> {
-  const MovieViewRoute() : super(MovieViewRoute.name, path: '/movie-view');
+  const MovieViewRoute({required Movie movie})
+      : super(MovieViewRoute.name, path: '/movie-view');
 
   static const String name = 'MovieViewRoute';
 }

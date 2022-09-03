@@ -13,7 +13,8 @@ class MovieTileViewModel extends BaseViewModel {
     this.movie = movie;
   }
 
-  Future<void> moveToMovieViewRoute(BuildContext context) async {
-    await locator<NavigationService>().pushNamed(MovieViewRoute(), context);
-  }
+  // Future<void> moveToMovieViewRoute(BuildContext context) async {
+  //   await locator<NavigationService>()
+  //       .pushNamed(MovieViewRoute(movie: null), context);
+  // }
 }
