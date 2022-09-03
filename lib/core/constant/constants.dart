@@ -8,7 +8,7 @@ class Constants {
   static const bool isHttpLogON = true;
 
   //Default Colors and Theme
-  static String app_color_primary = '6200EE';
+  static String app_color_primary = 'D32F2F';
   static String app_color_on_primary = 'ffffff';
   static String app_color_primary_variant = '5600E8';
   static String app_color_secondary = 'ffeb3b';

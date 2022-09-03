@@ -1,7 +1,7 @@
 class AssetImages {
   // Logos
 
-  static String logo_png = 'assets/images/photo.png';
+  static String logo_png = 'assets/images/red.png';
 
   //Social_icons
   static const empty_view = 'assets/images/empty_box.svg';
