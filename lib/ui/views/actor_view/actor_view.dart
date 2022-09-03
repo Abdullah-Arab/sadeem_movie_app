@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:movieapp/core/models/actor/actor.dart';
 import 'package:movieapp/ui/shared/ui_helper.dart';
 import 'package:stacked/stacked.dart';
 
@@ -58,7 +59,7 @@ class _ActorViewState extends State<ActorView>
               appBar: MyAppBar(),
               body: LoadingCircularProgressIndicator())
           : Scaffold(
-              appBar: MyAppBar("title"),
+              appBar: MyAppBar("title11"),
               body: model.isBusy
                   ? LoadingCircularProgressIndicator()
                   : Padding(
@@ -97,7 +98,7 @@ class _ActorViewState extends State<ActorView>
                                                 children: [
                                                   Expanded(
                                                     child: Text(
-                                                      'The Godfather',
+                                                      model.actor!.name!,
                                                       maxLines: 1,
                                                       overflow:
                                                           TextOverflow.ellipsis,

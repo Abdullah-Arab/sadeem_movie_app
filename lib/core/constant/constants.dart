@@ -3,12 +3,11 @@ import 'package:flutter/foundation.dart';
 class Constants {
   static const bool isDebugModeOn = !kReleaseMode;
 
-
   //settings
   static const bool isHttpLogON = true;
 
   //Default Colors and Theme
-  static String app_color_primary = '6200EE';
+  static String app_color_primary = 'FF0000';
   static String app_color_on_primary = 'ffffff';
   static String app_color_primary_variant = '5600E8';
   static String app_color_secondary = 'ffeb3b';
@@ -19,6 +18,4 @@ class Constants {
   static const String DEFAULT_PAGINATE = '20';
 
   static const int LOGO_FILE_TYPE = 1;
-
-
 }

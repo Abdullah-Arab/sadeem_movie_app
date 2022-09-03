@@ -36,7 +36,7 @@ class ActorTile extends StatelessWidget {
                     // color: Colors.r,
                     child: Image.network(
                       actor.thumb ??
-                          'https://freepikpsd.com/file/2019/10/placeholder-image-png-5-Transparent-Images.png',
+                          'https://cdn-icons-png.flaticon.com/512/21/21104.png',
                       fit: BoxFit.cover,
                     ),
                   ),

@@ -16,7 +16,7 @@ class ActorViewModel extends BaseViewModel {
     setBusy(true);
 
     this.actor = actor;
-
+    print(actor);
     setBusy(false);
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movieapp/ui/views/actors_list/paged_actors_list_view.dart';
 import 'package:stacked/stacked.dart';
 
 import '../../shared/ui_helper.dart';
@@ -64,72 +65,12 @@ class _ActorsListViewState extends State<ActorsListView>
                         ),
                         flex: 1,
                       ),
-
                     ],
                   ),
                 ),
                 Expanded(
                   child: Container(
-                    child: ListView(
-                      children: Iterable<int>.generate(20)
-                          .map((e) => InkWell(
-                        onTap: () async {
-
-
-
-                        },
-                        child: Card(
-                          elevation: 2,
-                          margin: EdgeInsets.all(8),
-                          child: Container(
-                            height:
-                            MediaQuery.of(context).size.height / 10,
-                            child: Row(
-                              children: [
-                                Expanded(
-                                  flex: 1,
-                                  child: Container(
-                                    //color: Colors.r,
-                                    child: Image.network(
-                                      'https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png',
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                ),
-                                Expanded(
-                                    flex: 3,
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(
-                                          left: 25, right: 25),
-                                      child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        children: [
-                                          Row(
-                                            mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                            children: [
-                                              Text(
-                                                'The Godfather',
-                                                maxLines: 1,
-                                                overflow: TextOverflow
-                                                    .ellipsis,
-                                                style: TextStyle(
-                                                    fontWeight:
-                                                    FontWeight
-                                                        .bold),
-                                              ),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                    ))
-                              ],
-                            ),
-                          ),
-                        ),
-                      )) // TODO move this section to staeLess widgets
-                          .toList(),
-                    ),
+                    child: PagedActorsListView({}, onActorsClicked: (move) {}),
                   ),
                 )
               ],

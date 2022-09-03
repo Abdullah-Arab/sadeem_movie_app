@@ -3,19 +3,18 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
-
+import 'package:movieapp/core/models/actor/actor.dart';
 import 'package:movieapp/generated/l10n.dart';
 import 'package:stacked/stacked.dart';
 
 import '../../../core/models/actor/actor.dart';
-import '../../widgets/stateless/actor_tile/actor_tile.dart';
 import '/core/constant/end_point_parameters.dart';
 import '../../../../locator.dart';
-
+import '../../../core/repositories/actors_repository/actors_repository.dart';
 import '../../widgets/stateless/indicators/empty_list_indicator.dart';
 import '../../widgets/stateless/indicators/error_indicator.dart';
 import '../../widgets/stateless/indicators/loading_circular_progress_indicator.dart';
-
+import '../../widgets/stateless/actor_tile/actor_tile.dart';
 import 'actors_list_view_model.dart';
 
 // ignore: must_be_immutable
@@ -86,8 +85,8 @@ class _PagedActorsItemsListViewViewState extends State<PagedActorsListView> {
               scrollController: controller,
               pagingController: _pagingController,
               builderDelegate: PagedChildBuilderDelegate<Actor>(
-                itemBuilder: (context, Actor, index) => ActorTile(
-                  actor: Actor,
+                itemBuilder: (context, actor, index) => ActorTile(
+                  actor: actor,
                   onChanged: (value) {},
                 ),
                 firstPageProgressIndicatorBuilder: (context) =>
@@ -109,8 +108,4 @@ class _PagedActorsItemsListViewViewState extends State<PagedActorsListView> {
               ),
             ));
   }
-}
-
-class ActorsRepository {
-  fetchActorsList(Map<String, dynamic> parameters) {}
 }
